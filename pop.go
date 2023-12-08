@@ -2,13 +2,13 @@ package cantrips
 
 import "fmt"
 
-// Pop removes last element of a slice. It then returns that element
+// Pop removes last element from a slice.
+//
+// Returns the removed element.
 //
 // slice: pointer to a slice of any type
 //
-// index: index of the element you wish to removed
-//
-// If an error is returned, popped will be of the type T in a zeroed state
+// index (optional): index of the element you wish to removed.
 func Pop[T any](slice *[]T, index ...int) (popped T, err error) {
 	indexLength := len(index)
 	sliceLength := len(*slice)

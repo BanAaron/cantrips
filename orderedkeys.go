@@ -12,10 +12,11 @@ type ordered interface {
 	cmp.Ordered
 }
 
-// KeysOrdered takes a map and returns a slice of keys in order. By default, keys
-// will be in ascending order.
+// KeysOrdered returns a slice of keys in ascending order.
 //
-//	reverse: if `true` keys will be in descending order.
+// input: a map with int, float, or string keys
+//
+// reverse: keys will be in descending order if set to true
 func KeysOrdered[Key ordered, Value any](input map[Key]Value, reverse ...bool) (keys []Key, err error) {
 	reverseLength := len(reverse)
 	if reverseLength > 1 {
