@@ -42,3 +42,18 @@ func TestKeysOrderedReverse(t *testing.T) {
 		t.Errorf("Resulting slice is invalid.\nExpecteed: %v\nResult: %v", target, keys)
 	}
 }
+
+func TestKeysOrderedEmptyMap(t *testing.T) {
+	scores := map[int]int{}
+	var target []int
+
+	keys, err := KeysOrdered(scores)
+	if err != nil {
+		t.Errorf("KeysOrdered returned an error: %v", err)
+	}
+
+	if !reflect.DeepEqual(keys, target) {
+
+		t.Errorf("Resulting slice is invalid.\nExpecteed: %v\nResult: %v", target, keys)
+	}
+}
