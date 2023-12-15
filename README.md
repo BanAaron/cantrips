@@ -29,12 +29,12 @@ import (
 
 func main() {
 	names := []string{"aaron", "chris", "drew"}
-	n, _ := cantrips.Pop(&names)
+	n := cantrips.Pop(&names)
 	fmt.Println(n)     // "drew"
 	fmt.Println(names) // ["aaron", "chris"]
 
 	// you can provide an index to remove an element at a specific index
-	p, _ := cantrips.Pop(&names, 1)
+	p := cantrips.Pop(&names, 1)
 	fmt.Println(p)     // "chris"
 	fmt.Println(names) // ["aaron"]
 }
