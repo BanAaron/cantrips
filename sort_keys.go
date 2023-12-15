@@ -2,7 +2,7 @@ package cantrips
 
 import (
 	"cmp"
-	"fmt"
+	"log"
 	"sort"
 )
 
@@ -12,16 +12,15 @@ type ordered interface {
 	cmp.Ordered
 }
 
-// KeysOrdered returns a slice of keys in ascending order.
+// SortKeys returns a slice of keys in ascending order.
 //
 // input: a map with int, float, or string keys
 //
 // reverse: keys will be in descending order if set to true
-func KeysOrdered[Key ordered, Value any](input map[Key]Value, reverse ...bool) (keys []Key, err error) {
+func SortKeys[Key ordered, Value any](input map[Key]Value, reverse ...bool) (keys []Key) {
 	reverseLength := len(reverse)
 	if reverseLength > 1 {
-		err = fmt.Errorf("Too many optional arguments provided. Number of option arguments provided: %d\n", reverseLength)
-		return
+		log.Fatalf("Too many optional arguments provided. Number of option arguments provided: %d\n", reverseLength)
 	}
 	doReverse := false
 
